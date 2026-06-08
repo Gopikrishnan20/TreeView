@@ -1,0 +1,162 @@
+/* Fluent Blue Light theme — values from dx.fluent.blue.light.css */
+
+/* ── Checkbox overrides ─────────────────────────────────────────────────── */
+.dx-treeview .dx-checkbox-icon {
+  width: 20px;
+  height: 20px;
+  border-color: #616161;
+  border-radius: 2px;
+}
+
+.dx-treeview .dx-checkbox-checked .dx-checkbox-icon {
+  background-color: #0f548c;
+  border-color: #0f548c;
+}
+
+.dx-treeview .dx-checkbox-indeterminate .dx-checkbox-icon {
+  background-color: #0f548c;
+  border-color: #0f548c;
+}
+.dx-treeview .dx-checkbox-indeterminate .dx-checkbox-icon::before {
+  background-color: #fff;
+}
+
+/* ── Toggle icon size ───────────────────────────────────────────────────── */
+.dx-treeview-toggle-item-visibility {
+  width: 20px;
+  height: 20px;
+  color: #616161;
+}
+
+.dx-treeview-toggle-item-visibility::before {
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23616161' d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z'/%3E%3C/svg%3E");
+}
+
+.dx-treeview-toggle-item-visibility.dx-treeview-toggle-item-visibility-opened::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23616161' d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z'/%3E%3C/svg%3E");
+}
+
+/* ── Expander stub ──────────────────────────────────────────────────────── */
+.dx-treeview-expander-icon-stub {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Item padding and hover ─────────────────────────────────────────────── */
+.dx-treeview-item {
+  gap: 8px;
+  padding: 12px;
+  margin: 1px 0;
+  border-radius: 4px;
+}
+
+.dx-treeview-item .dx-treeview-item-content .dx-icon {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.dx-treeview-item.dx-state-hover,
+.dx-treeview-item:hover {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  color: #242424;
+}
+
+/* ── Selected state ─────────────────────────────────────────────────────── */
+.dx-state-selected > .dx-treeview-item {
+  color: #242424;
+  border-radius: 4px;
+}
+
+.dx-treeview-item-without-checkbox.dx-state-selected > .dx-treeview-item {
+  color: #242424;
+  background-color: #ebebeb;
+}
+
+/* ── Focused state ──────────────────────────────────────────────────────── */
+.dx-treeview-item-without-checkbox.dx-state-focused > .dx-treeview-item {
+  background-color: #f5f5f5;
+  color: #242424;
+  border-radius: 4px;
+}
+
+.dx-treeview-item-with-checkbox.dx-state-focused > .dx-treeview-item .dx-checkbox .dx-checkbox-icon {
+  border-color: #0f548c;
+}
+
+.dx-treeview-item-with-checkbox.dx-state-focused > .dx-treeview-item .dx-checkbox.dx-checkbox-checked .dx-checkbox-icon,
+.dx-treeview-item-with-checkbox.dx-state-focused > .dx-treeview-item .dx-checkbox.dx-checkbox-indeterminate .dx-checkbox-icon::before {
+  background-color: #0f548c;
+}
+
+/* ── Node padding ───────────────────────────────────────────────────────── */
+.dx-treeview-node {
+  padding-inline-start: 14px;
+}
+
+/* ── Checkbox container size ────────────────────────────────────────────── */
+.dx-treeview-item-with-checkbox .dx-checkbox .dx-checkbox-container {
+  height: 20px;
+  width: 20px;
+}
+
+.dx-treeview-item-with-checkbox .dx-treeview-item {
+  color: #242424;
+}
+
+/* ── Search box ─────────────────────────────────────────────────────────── */
+.dx-treeview-search {
+  margin-bottom: 8px;
+}
+
+.dx-treeview-with-search > .dx-scrollable {
+  height: calc(100% - 56px);
+}
+
+/* ── Select All ─────────────────────────────────────────────────────────── */
+.dx-treeview-select-all-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 15px 42px;
+}
+
+/* ── Load indicator ─────────────────────────────────────────────────────── */
+.dx-treeview-node-loadindicator {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Border visible ─────────────────────────────────────────────────────── */
+.dx-treeview-border-visible {
+  border: 1px solid #e0e0e0;
+}
+
+.dx-treeview-border-visible .dx-treeview-select-all-item {
+  padding-inline-start: 26px;
+}
+
+.dx-treeview-border-visible .dx-scrollable-content > .dx-treeview-node-container {
+  padding: 1px 1px 1px 8px;
+}
+
+/* ── TextEditor (search box) overrides ──────────────────────────────────── */
+.dx-treeview .dx-texteditor {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 6px 8px;
+}
+
+/* ── Custom icons size ──────────────────────────────────────────────────── */
+.dx-treeview-custom-collapse-icon,
+.dx-treeview-custom-expand-icon {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  font-size: 20px;
+  line-height: 20px;
+}

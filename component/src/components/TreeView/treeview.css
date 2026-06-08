@@ -1,0 +1,394 @@
+/* Generic Light theme — values from dx.light.css */
+
+/* ── Checkbox (needed within TreeView context) ─────────────────────────── */
+.dx-treeview .dx-checkbox {
+  display: inline-flex;
+  outline: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.dx-treeview .dx-checkbox-container {
+  display: flex;
+  align-items: center;
+}
+.dx-treeview .dx-checkbox-icon {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  position: relative;
+  flex-shrink: 0;
+}
+.dx-treeview .dx-checkbox-checked .dx-checkbox-icon {
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+.dx-treeview .dx-checkbox-checked .dx-checkbox-icon::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+.dx-treeview .dx-checkbox-indeterminate .dx-checkbox-icon {
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+.dx-treeview .dx-checkbox-indeterminate .dx-checkbox-icon::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  right: 3px;
+  height: 2px;
+  background-color: #fff;
+  transform: translateY(-50%);
+}
+.dx-treeview .dx-checkbox-text {
+  padding-inline-start: 8px;
+  font-size: 14px;
+  color: #333;
+}
+.dx-treeview .dx-state-disabled .dx-checkbox {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* ── TreeView widget ────────────────────────────────────────────────────── */
+.dx-treeview {
+  height: 100%;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir, "segoe ui",
+    "helvetica neue", "adwaita sans", cantarell, ubuntu, roboto, noto, helvetica,
+    arial, sans-serif;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.dx-treeview .dx-scrollable:focus,
+.dx-treeview :focus {
+  outline: 0;
+}
+
+.dx-treeview .dx-empty-message {
+  line-height: normal;
+  padding: 10px;
+  color: #999;
+  text-align: center;
+}
+
+/* ── Node root-level container ──────────────────────────────────────────── */
+.dx-treeview-node-container:first-child,
+.dx-checkbox + .dx-treeview-node-container {
+  margin: 0;
+  display: block;
+}
+
+.dx-treeview .dx-treeview-node.dx-treeview-root-node {
+  padding-inline-start: 0;
+}
+
+/* ── Node container (children) ──────────────────────────────────────────── */
+.dx-treeview-node-container {
+  list-style-position: inside;
+  padding: 0;
+  margin: 0;
+  display: none;
+  overflow: hidden;
+}
+
+.dx-treeview-node-container.dx-treeview-node-container-opened {
+  display: block;
+}
+
+/* ── Node (list item) ───────────────────────────────────────────────────── */
+.dx-treeview-node {
+  list-style-type: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  padding-inline-start: 15px;
+}
+
+.dx-treeview-node a {
+  text-decoration: none;
+}
+
+.dx-treeview-node .dx-checkbox {
+  order: 1;
+  margin: 0;
+}
+
+/* ── Item (flex row) ────────────────────────────────────────────────────── */
+.dx-treeview-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+  padding: 5px 10px;
+  margin: 0;
+}
+
+.dx-treeview-item:hover,
+.dx-treeview-item.dx-state-hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 0;
+  color: #333;
+}
+
+.dx-treeview-item.dx-state-disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* ── Item content ───────────────────────────────────────────────────────── */
+.dx-treeview-item-content {
+  flex: 1 1 auto;
+  order: 2;
+}
+
+.dx-treeview-item-content .dx-icon {
+  margin-inline-end: 8px;
+  width: 18px;
+  height: 18px;
+  background-position: 0 0;
+  background-size: 18px 18px;
+  padding: 0;
+  font-size: 18px;
+  text-align: center;
+  line-height: 18px;
+  vertical-align: bottom;
+}
+
+/* ── Selected state ─────────────────────────────────────────────────────── */
+.dx-state-selected > .dx-treeview-item {
+  color: #333;
+  border-radius: 0;
+}
+
+.dx-treeview-item-without-checkbox.dx-state-selected > .dx-treeview-item {
+  color: #333;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ── Focused state ──────────────────────────────────────────────────────── */
+.dx-treeview-item-without-checkbox.dx-state-focused > .dx-treeview-item {
+  background-color: #337ab7;
+  color: #fff;
+  border-radius: 0;
+}
+
+.dx-treeview-item-with-checkbox.dx-state-focused > .dx-treeview-item .dx-checkbox .dx-checkbox-icon {
+  border: 1px solid #337ab7;
+}
+
+/* ── Toggle expand/collapse icon ────────────────────────────────────────── */
+.dx-treeview-toggle-item-visibility {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  order: 0;
+  flex-shrink: 0;
+  color: #333;
+}
+
+.dx-treeview-toggle-item-visibility.dx-state-disabled {
+  cursor: default;
+}
+
+/* Chevron right (collapsed) using SVG background */
+.dx-treeview-toggle-item-visibility::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23333' d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Chevron down (expanded) */
+.dx-treeview-toggle-item-visibility.dx-treeview-toggle-item-visibility-opened::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23333' d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z'/%3E%3C/svg%3E");
+}
+
+.dx-rtl .dx-treeview-toggle-item-visibility {
+  transform: scaleX(-1);
+}
+
+/* ── Expander icon stub (leaf nodes) ────────────────────────────────────── */
+.dx-treeview-expander-icon-stub {
+  display: flex;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+}
+
+/* ── Custom expand/collapse icons ───────────────────────────────────────── */
+.dx-treeview-custom-collapse-icon,
+.dx-treeview-custom-expand-icon {
+  cursor: pointer;
+  order: 0;
+  width: 22px;
+  height: 22px;
+  background-position: 2px 2px;
+  background-size: 18px 18px;
+  padding: 2px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 18px;
+}
+
+.dx-treeview-custom-collapse-icon.dx-state-disabled,
+.dx-treeview-custom-expand-icon.dx-state-disabled {
+  cursor: default;
+}
+
+.dx-rtl .dx-treeview-custom-collapse-icon,
+.dx-rtl .dx-treeview-custom-expand-icon {
+  transform: scaleX(-1);
+}
+
+/* ── Checkbox within item-with-checkbox ─────────────────────────────────── */
+.dx-treeview-item-with-checkbox .dx-checkbox .dx-checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  width: 22px;
+}
+
+.dx-treeview-item-with-checkbox .dx-treeview-item {
+  color: #333;
+}
+
+/* ── Select All item ────────────────────────────────────────────────────── */
+.dx-treeview-select-all-item {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  padding: 9px 40px 11px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.dx-treeview-select-all-item .dx-checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.dx-treeview-select-all-item .dx-checkbox-text {
+  padding-inline-start: 8px;
+}
+
+/* ── Search box ─────────────────────────────────────────────────────────── */
+.dx-treeview-search {
+  margin-bottom: 5px;
+}
+
+.dx-treeview-with-search > .dx-scrollable {
+  height: calc(100% - 41px);
+}
+
+/* ── Search TextEditor styling ──────────────────────────────────────────── */
+.dx-treeview .dx-texteditor {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+}
+
+.dx-treeview .dx-texteditor-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #333;
+  font-family: inherit;
+  padding: 4px 0;
+}
+
+/* ── Load indicator ─────────────────────────────────────────────────────── */
+.dx-treeview-node-loadindicator {
+  width: 22px;
+  height: 22px;
+  order: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dx-treeview-loadindicator-wrapper {
+  text-align: center;
+}
+
+/* Simple spinner */
+.dx-treeview-node-loadindicator .dx-loadindicator-icon {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ddd;
+  border-top-color: #337ab7;
+  border-radius: 50%;
+  animation: dx-treeview-spin 0.8s linear infinite;
+}
+
+@keyframes dx-treeview-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Border variant ─────────────────────────────────────────────────────── */
+.dx-treeview-border-visible {
+  border: 1px solid #ddd;
+}
+
+.dx-treeview-border-visible .dx-treeview-select-all-item {
+  padding-inline-start: 20px;
+}
+
+.dx-treeview-border-visible .dx-scrollable-content > .dx-treeview-node-container {
+  padding: 1px 1px 1px 7px;
+}
+
+/* ── Scrollable container ───────────────────────────────────────────────── */
+.dx-treeview .dx-scrollable {
+  overflow: hidden;
+  height: 100%;
+}
+
+.dx-treeview .dx-scrollable-wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+
+.dx-treeview .dx-scrollable-container {
+  height: 100%;
+  overflow: auto;
+}
+
+.dx-treeview .dx-scrollable-content {
+  min-height: 100%;
+}
+
+/* ── RTL support ────────────────────────────────────────────────────────── */
+.dx-rtl.dx-treeview .dx-treeview-node {
+  padding-inline-start: 15px;
+}

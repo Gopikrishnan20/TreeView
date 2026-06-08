@@ -371,7 +371,7 @@ function buildTreeNodes<TItem extends TreeViewItem, TKey>(
   } = opts;
 
   if (dataStructure === 'plain') {
-    const targetParent = parentKey === null ? (rootValue ?? 0) : parentKey;
+    const targetParent = parentKey === null ? (rootValue !== undefined ? rootValue : 0) : parentKey;
     return items
       .filter(item => {
         const pid = getExpr(item, parentIdExpr, 'parentId');
